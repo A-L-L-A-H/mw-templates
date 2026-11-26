@@ -1,0 +1,19 @@
+services:
+  app:
+    image: ghost:5-alpine
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "2368"
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      database__client: sqlite3
+      database__connection__filename: /var/lib/ghost/content/data/ghost.db
+    volumes:
+      - ghost_data:/var/lib/ghost/content
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  ghost_data:

@@ -1,0 +1,16 @@
+services:
+  app:
+    image: ghcr.io/muchobien/pocketbase:latest
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "8090"
+    mem_limit: 256m
+    cpus: 0.5
+    volumes:
+      - pb_data:/pb_data
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  pb_data:

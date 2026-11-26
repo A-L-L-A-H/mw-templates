@@ -1,0 +1,31 @@
+services:
+  app:
+    image: miniflux/miniflux:latest
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "8080"
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      DATABASE_URL: postgres://miniflux:{{RAND_HEX_24}}@db/miniflux?sslmode=disable
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: {{RAND_HEX_24}}
+    depends_on: [db]
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    networks: [tenant]
+    environment:
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: {{RAND_HEX_24}}
+      POSTGRES_DB: miniflux
+    volumes:
+      - miniflux_db:/var/lib/postgresql/data
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  miniflux_db:

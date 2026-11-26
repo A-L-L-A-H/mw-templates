@@ -1,0 +1,19 @@
+services:
+  app:
+    image: gitea/gitea:1-rootless
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "3000"
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__security__SECRET_KEY: {{RAND_HEX_24}}
+    volumes:
+      - gitea_data:/var/lib/gitea
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  gitea_data:

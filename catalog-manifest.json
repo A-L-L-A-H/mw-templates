@@ -10,14 +10,18 @@
       "fileCount": 395,
       "digest": "6ab6403ea0e941d20b6dcef0dd69934ea5c5b7d0d279153445e9884872e58700"
     },
+    "paas-template-pack-curated": {
+      "fileCount": 11,
+      "digest": "534d52ea3d03153748953b8e4d4dd67e290c1a689f3d596b393fcf24aaede42c"
+    },
     "paas-template-pack-dokploy": {
       "fileCount": 2734,
       "digest": "faed050ca05e4b8057a9d96d2a02316458131e30c2a3adecf4c5c98c4146f7eb"
     }
   },
   "summary": {
-    "totalPacks": 3,
-    "totalFiles": 3206,
-    "catalogSha256": "7b2b3427d5adc62c63f0c5fdd7d843de59763ea1052d56e8e332c7866eeb875e"
+    "totalPacks": 4,
+    "totalFiles": 3217,
+    "catalogSha256": "4f1a7548c8816f3b56dbb6563c977347d82a4eb528d316ebf26c0f835298b6a4"
   }
 }

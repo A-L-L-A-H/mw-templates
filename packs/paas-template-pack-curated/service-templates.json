@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "pack": "paas-template-pack-curated",
+  "templates": [
+    {
+      "slug": "wordpress",
+      "name": "WordPress",
+      "description": "UMKM company site / blog",
+      "image": "wordpress:6-apache",
+      "port": 80,
+      "secrets": 2,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "description": "Workflow automation",
+      "image": "n8nio/n8n:latest",
+      "port": 5678,
+      "secrets": 1,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "ghost",
+      "name": "Ghost",
+      "description": "Publishing and newsletters",
+      "image": "ghost:5-alpine",
+      "port": 2368,
+      "secrets": 0,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "description": "Uptime monitoring",
+      "image": "louislam/uptime-kuma:1",
+      "port": 3001,
+      "secrets": 0,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "umami",
+      "name": "Umami",
+      "description": "Privacy-first web analytics",
+      "image": "ghcr.io/umami-software/umami:postgresql-latest",
+      "port": 3000,
+      "secrets": 3,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "gitea",
+      "name": "Gitea",
+      "description": "Lightweight git hosting",
+      "image": "gitea/gitea:1-rootless",
+      "port": 3000,
+      "secrets": 1,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "miniflux",
+      "name": "Miniflux",
+      "description": "Minimal RSS reader",
+      "image": "miniflux/miniflux:latest",
+      "port": 8080,
+      "secrets": 3,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "pocketbase",
+      "name": "PocketBase",
+      "description": "Single-file backend for apps",
+      "image": "ghcr.io/muchobien/pocketbase:latest",
+      "port": 8090,
+      "secrets": 0,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "static-nginx",
+      "name": "Static Nginx",
+      "description": "Static site hosting",
+      "image": "nginx:alpine",
+      "port": 80,
+      "secrets": 0,
+      "minPlan": "starter"
+    },
+    {
+      "slug": "bun-api",
+      "name": "Bun API",
+      "description": "Bun HTTP API runtime",
+      "image": "oven/bun:1-alpine",
+      "port": 3000,
+      "secrets": 1,
+      "minPlan": "starter"
+    }
+  ]
+}

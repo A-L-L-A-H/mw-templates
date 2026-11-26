@@ -1,0 +1,16 @@
+services:
+  app:
+    image: nginx:alpine
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "80"
+    mem_limit: 256m
+    cpus: 0.5
+    volumes:
+      - site_data:/usr/share/nginx/html:ro
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  site_data:

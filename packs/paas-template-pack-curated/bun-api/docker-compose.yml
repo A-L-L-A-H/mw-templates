@@ -1,0 +1,20 @@
+services:
+  app:
+    image: oven/bun:1-alpine
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "3000"
+    mem_limit: 256m
+    cpus: 0.5
+    working_dir: /app
+    command: ["bun", "run", "index.ts"]
+    environment:
+      API_TOKEN: {{RAND_HEX_24}}
+    volumes:
+      - api_src:/app
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  api_src:

@@ -1,0 +1,28 @@
+services:
+  app:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "3000"
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      DATABASE_URL: postgresql://umami:{{RAND_HEX_24}}@db:5432/umami
+      APP_SECRET: {{RAND_HEX_24}}
+    depends_on: [db]
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    networks: [tenant]
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: {{RAND_HEX_24}}
+    volumes:
+      - umami_db:/var/lib/postgresql/data
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  umami_db:

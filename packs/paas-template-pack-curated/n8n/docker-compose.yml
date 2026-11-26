@@ -1,0 +1,18 @@
+services:
+  app:
+    image: n8nio/n8n:latest
+    restart: unless-stopped
+    networks: [tenant]
+    expose:
+      - "5678"
+    mem_limit: 256m
+    cpus: 0.5
+    environment:
+      N8N_ENCRYPTION_KEY: {{RAND_HEX_24}}
+    volumes:
+      - n8n_data:/home/node/.n8n
+networks:
+  tenant:
+    name: {{TENANT_NETWORK}}
+volumes:
+  n8n_data:
