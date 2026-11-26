@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-26T00:00:00.000Z",
+  "packs": {
+    "paas-template-pack-bigbear": {
+      "fileCount": 77,
+      "digest": "42c40a061de32e88c4b936db1d9f203b096d52eafd42bccad6b65823dba103bb"
+    },
+    "paas-template-pack-coolify": {
+      "fileCount": 395,
+      "digest": "6ab6403ea0e941d20b6dcef0dd69934ea5c5b7d0d279153445e9884872e58700"
+    },
+    "paas-template-pack-dokploy": {
+      "fileCount": 2734,
+      "digest": "faed050ca05e4b8057a9d96d2a02316458131e30c2a3adecf4c5c98c4146f7eb"
+    }
+  },
+  "summary": {
+    "totalPacks": 3,
+    "totalFiles": 3206,
+    "catalogSha256": "7b2b3427d5adc62c63f0c5fdd7d843de59763ea1052d56e8e332c7866eeb875e"
+  }
+}
