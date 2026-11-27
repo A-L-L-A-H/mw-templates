@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   commitlint:
-    name: Commitlint
+    name: commitlint
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
@@ -30,7 +30,7 @@ jobs:
         run: npx commitlint --from=origin/main --to=HEAD --extends @commitlint/config-conventional
 
   verify:
-    name: Verify catalog/scripts
+    name: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -49,10 +49,10 @@ jobs:
           if [ -f workspace.json ]; then node -e 'JSON.parse(require("fs").readFileSync("workspace.json","utf8"))'; fi
 
   security:
-    name: Security
+    name: security
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: false
