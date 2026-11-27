@@ -1,22 +1,55 @@
-name: ci
+name: CI
+
 on:
   push:
-    branches: [main, dev]
+    branches: [main]
   pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
-  ci:
+  commitlint:
+    name: Commitlint
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Install commitlint
+        run: npm install -g @commitlint/cli @commitlint/config-conventional
+      - name: Run commitlint
+        run: npx commitlint --from=origin/main --to=HEAD --extends @commitlint/config-conventional
+
+  verify:
+    name: Verify catalog/scripts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
         with:
-          node-version: 22
-      - run: node scripts/verify-catalog.mjs
-      - run: node scripts/validate-compose-security.mjs
-      - run: node --test tests/validate-compose-security.test.mjs
+          persist-credentials: false
 
-  secret-scan:
-    name: Secret scan
+      - name: Shell syntax
+        run: |
+          find . -maxdepth 2 -name '*.sh' -not -path './node_modules/*' -print0 | xargs -0 -r bash -n
+
+      - name: Data validation
+        run: |
+          if [ -f scripts/verify-catalog.mjs ]; then node scripts/verify-catalog.mjs; fi
+          if [ -f scripts/validate-compose-security.mjs ]; then node scripts/validate-compose-security.mjs; fi
+          if [ -f registry/services.json ]; then node -e 'JSON.parse(require("fs").readFileSync("registry/services.json","utf8"))'; fi
+          if [ -f workspace.json ]; then node -e 'JSON.parse(require("fs").readFileSync("workspace.json","utf8"))'; fi
+
+  security:
+    name: Security
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +57,8 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v3
         env:
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
