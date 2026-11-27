@@ -12,6 +12,8 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/verify-catalog.mjs
+      - run: node scripts/validate-compose-security.mjs
+      - run: node --test tests/validate-compose-security.test.mjs
 
   secret-scan:
     name: Secret scan

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { validateComposeContent } from './validate-compose-security.mjs';
+import { validateComposeContent } from '../scripts/validate-compose-security.mjs';
 
 test('blocks privileged: true', () => {
   const yaml = `
