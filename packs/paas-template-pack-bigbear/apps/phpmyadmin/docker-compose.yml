@@ -25,7 +25,7 @@ services:
       PMA_USER: "bigbear"
 
       # Password to connect to the database
-      PMA_PASSWORD: "password"
+      PMA_PASSWORD: {{RAND_HEX_24}}
 
     # Port mapping: map host's port 8080 to container's port 80
     ports:

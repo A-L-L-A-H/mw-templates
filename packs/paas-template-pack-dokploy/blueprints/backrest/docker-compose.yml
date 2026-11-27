@@ -14,7 +14,7 @@ services:
       - backrest/data:/data
       - backrest/config:/config
       - backrest/config:/cache # to preserve backup cache between restarts
-      - /:/userdata:ro # we mount /mnt/data to /userdata (that we want to backup)
+      # sanitized-host-root-mount: - /:/userdata:ro # we mount /mnt/data to /userdata (that we want to backup)
 
 volumes:
   backrest: 

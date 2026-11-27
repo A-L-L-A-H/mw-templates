@@ -2,7 +2,7 @@
 services:
   mikrotik:
     image: ghcr.io/ramezhany/mikrotik-chr-containerized:7.20.4
-    privileged: true
+    privileged: false
     restart: unless-stopped
     mem_limit: 4g
     cpus: 4.0

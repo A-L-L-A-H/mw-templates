@@ -4,7 +4,7 @@
   "packs": {
     "paas-template-pack-bigbear": {
       "fileCount": 77,
-      "digest": "42c40a061de32e88c4b936db1d9f203b096d52eafd42bccad6b65823dba103bb"
+      "digest": "f7ffd4b393f81fe4a89733c35cec2b3fdf3409cb83447918340480d82157250c"
     },
     "paas-template-pack-coolify": {
       "fileCount": 395,
@@ -12,16 +12,16 @@
     },
     "paas-template-pack-curated": {
       "fileCount": 11,
-      "digest": "534d52ea3d03153748953b8e4d4dd67e290c1a689f3d596b393fcf24aaede42c"
+      "digest": "f6ee1784ea143cc6f5a192421c318b88982fa30d8efe51e27d44dd8ac9fc6e1c"
     },
     "paas-template-pack-dokploy": {
       "fileCount": 2734,
-      "digest": "faed050ca05e4b8057a9d96d2a02316458131e30c2a3adecf4c5c98c4146f7eb"
+      "digest": "9386f09f53e5f044864df52f003d4a35060db999f4f76f77cb8dc39542036d82"
     }
   },
   "summary": {
     "totalPacks": 4,
     "totalFiles": 3217,
-    "catalogSha256": "4f1a7548c8816f3b56dbb6563c977347d82a4eb528d316ebf26c0f835298b6a4"
+    "catalogSha256": "a4cf94bc3edf810cf4fa5eaafad2c3344877af21a7717464b4895f7c8876c0f4"
   }
 }

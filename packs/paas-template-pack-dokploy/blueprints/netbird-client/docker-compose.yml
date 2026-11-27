@@ -3,7 +3,7 @@ services:
     image: netbirdio/netbird:0.83.2
     restart: unless-stopped
     network_mode: host
-    privileged: true
+    privileged: false
     environment:
       # Create a setup key in your NetBird dashboard first (Peers -> Add Peer,
       # or Settings -> Setup Keys) and set NB_SETUP_KEY in the template

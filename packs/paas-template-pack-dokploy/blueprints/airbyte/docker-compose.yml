@@ -154,7 +154,7 @@ services:
       - --disable=metrics-server
       - --disable=coredns
       - --tls-san=k3s
-    privileged: true
+    privileged: false
     environment:
       K3S_KUBECONFIG_OUTPUT: /output/kubeconfig.yaml
       K3S_KUBECONFIG_MODE: "0644"

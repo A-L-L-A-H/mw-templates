@@ -39,7 +39,7 @@ services:
       - storage:/data
     environment:
       MINIO_ROOT_USER: usesend
-      MINIO_ROOT_PASSWORD: password
+      MINIO_ROOT_PASSWORD: {{RAND_HEX_24}}
     entrypoint: sh
     command: -c 'mkdir -p /data/usesend && minio server /data --console-address ":9001" --address ":9002"'
 

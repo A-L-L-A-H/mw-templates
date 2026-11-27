@@ -3,7 +3,7 @@ services:
     image: postgres:16-alpine
     restart: always
     environment:
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_PASSWORD: {{RAND_HEX_24}}
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
 

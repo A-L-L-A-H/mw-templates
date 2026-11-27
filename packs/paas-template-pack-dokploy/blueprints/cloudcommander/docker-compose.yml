@@ -10,4 +10,4 @@ services:
       - CLOUDCMD_PASSWORD=${PASSWORD}
     volumes:
       - /root:/root
-      - /:/mnt/fs 
+      # sanitized-host-root-mount: - /:/mnt/fs 

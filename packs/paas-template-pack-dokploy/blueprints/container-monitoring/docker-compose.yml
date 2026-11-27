@@ -2,11 +2,11 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.55.1
     restart: unless-stopped
-    privileged: true
+    privileged: false
     devices:
       - /dev/kmsg
     volumes:
-      - /:/rootfs:ro
+      # sanitized-host-root-mount: - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
     pid: host
     volumes:
-      - /:/host:ro,rslave
+      # sanitized-host-root-mount: - /:/host:ro,rslave
     command:
       - --path.rootfs=/host
 

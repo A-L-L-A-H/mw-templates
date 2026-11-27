@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
 
     # Privilege of the container
-    privileged: true
+    privileged: false
 
     # Uses bridge network mode
     network_mode: bridge

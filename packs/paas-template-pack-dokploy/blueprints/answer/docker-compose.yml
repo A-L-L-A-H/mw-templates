@@ -23,7 +23,7 @@ services:
     environment:
       POSTGRES_DB: answer
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: {{RAND_HEX_24}}
 
 volumes:
   answer-data:

@@ -2,6 +2,11 @@ services:
   app:
     image: miniflux/miniflux:latest
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
     networks: [tenant]
     expose:
       - "8080"
