@@ -1,6 +1,6 @@
 name: CI
 
-on:
+"on":
   push:
     branches: [main]
   pull_request:
@@ -58,7 +58,7 @@ jobs:
           persist-credentials: false
 
       - name: gitleaks
-        uses: gitleaks/gitleaks-action@v3
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e
         env:
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

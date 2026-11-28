@@ -1,6 +1,6 @@
 name: Release (Data / Config)
 
-on:
+"on":
   push:
     tags:
       - 'v*'
