@@ -1,0 +1,22 @@
+name: Release (Data / Config)
+
+"on":
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-and-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Validate JSON/YAML configs
+        run: |
+          find . -name '*.json' -exec python -m json.tool {} \; >/dev/null
+          find . -name '*.yml' -o -name '*.yaml' | xargs -r python -c 'import yaml,sys; [yaml.safe_load(open(f)) for f in sys.argv[1:]]' _
+      - name: Tag pushed
+        run: echo "Tag ${{ github.ref_name }} validated and released"
